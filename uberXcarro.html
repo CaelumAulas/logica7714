@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<title>Uber X Carro</title>
+<script>
+    var distancia;
+    var estacionamento;
+    var consumo;
+    var precoLitroGasolina;
+    var gasolina;
+    var totalCarro;
+    var uber;
+    var taxaInicial=7;
+    var taxaDistancia=1.4;
+
+    distancia=parseFloat(prompt("Digite a distância percorrida em km").replace(",","."));
+    document.write("<p>Distância: "+distancia+"km</p>");
+    
+    document.write("<h2>Carro:</h2>");
+    estacionamento=parseFloat(prompt("Digite o estacionamento").replace(",","."));
+    consumo=parseFloat(prompt("Digite o consumo do seu carro").replace(",","."));
+    precoLitroGasolina=parseFloat(prompt("Digite o preço da gasolina").replace(",","."));
+    gasolina=precoLitroGasolina/consumo*distancia;
+    totalCarro = estacionamento+gasolina;
+    document.write("<p>Estacionamento: R$"+estacionamento.toFixed(2).replace(".",",")+"</p>");
+    document.write("<p>Valor gasto com gasolina: R$"+gasolina.toFixed(2).replace(".",",")+"</p>");
+    document.write("<p>Valor final: R$"+ totalCarro.toFixed(2).replace(".",",")+"</p>");
+    
+    document.write("<h2>Uber:</h2>");
+    uber = taxaInicial+taxaDistancia*distancia;
+    document.write("<p>Valor final: R$" +uber.toFixed(2).replace(".",",")+ "</p>");
+</script>

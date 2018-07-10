@@ -1,0 +1,7 @@
+<script>
+    var peso=parseFloat(prompt("Qual o seu peso?").replace(",","."));
+    var lanches = parseFloat(prompt("Quantos kilos você comeu no almoço?").replace(",","."));
+    var altura=parseFloat(prompt("Qual a sua altura?").replace(",","."));
+    var imc = (peso+lanches)/altura**2;
+    document.write("<h1>O IMC é " + imc.toFixed(2).replace(".",",") + "</h1>");
+</script>
