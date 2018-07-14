@@ -1,7 +1,11 @@
 <meta charset="utf-8">
 <title>Uber X Carro</title>
+<script src="pegaNumero.js"></script>
+<script src="https://rawgit.com/CaelumAulas/logica7714/master/libTempo.js"></script>
 <script>
     var distancia;
+    var velocidade;
+    var tempo;
     var estacionamento;
     var consumo;
     var precoLitroGasolina;
@@ -10,20 +14,17 @@
     var uber;
     var taxaInicial=7;
     var taxaDistancia=1.4;
-  
-
-    var texto;
-    //criação da função
-    function pegaNumeroDoUsuario() {
-        var numero;
-        numero = parseFloat(prompt(texto).replace(",","."));
-        return numero;
-    }
+    //velocidade media na cidade
+    velocidade = 50;
     texto = "Digite a distância em km";
     //execução da função
     distancia=pegaNumeroDoUsuario();
     document.write("<p>Distância: "+distancia+"km</p>");
     
+    tempo = (distancia/velocidade)*60;
+    tempoMinutos = tempo;
+    document.write("<p>Tempo: "+formataRelogio()+"min</p>");
+
     document.write("<h2>Carro:</h2>");
     texto = "Digite o valor do estacionamento";
     //execução da função
