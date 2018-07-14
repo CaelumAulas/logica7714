@@ -1,7 +1,6 @@
-var texto;
 //criação da função
-function pegaNumeroDoUsuario() {
+function pegaNumeroDoUsuario(frase) {
     var numero;
-    numero = parseFloat(prompt(texto).replace(",","."));
+    numero = parseFloat(prompt(frase).replace(",","."));
     return numero;
 }

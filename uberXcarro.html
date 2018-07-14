@@ -16,23 +16,21 @@
     var taxaDistancia=1.4;
     //velocidade media na cidade
     velocidade = 50;
-    texto = "Digite a distância em km";
+
     //execução da função
-    distancia=pegaNumeroDoUsuario();
+    distancia=pegaNumeroDoUsuario("Digite a distância em km");
     document.write("<p>Distância: "+distancia+"km</p>");
     
     tempo = (distancia/velocidade)*60;
-    tempoMinutos = tempo;
-    document.write("<p>Tempo: "+formataRelogio()+"min</p>");
+
+    document.write("<p>Tempo: "+formataRelogio(tempo)+"min</p>");
 
     document.write("<h2>Carro:</h2>");
-    texto = "Digite o valor do estacionamento";
+
     //execução da função
-    estacionamento=pegaNumeroDoUsuario();
-    texto = "Digite o consumo do seu carro";
-    consumo=pegaNumeroDoUsuario();
-    texto = "Digite o preço da gasolina";
-    precoLitroGasolina=pegaNumeroDoUsuario();
+    estacionamento=pegaNumeroDoUsuario("Digite o valor do estacionamento");
+    consumo=pegaNumeroDoUsuario("Digite o consumo do seu carro");
+    precoLitroGasolina=pegaNumeroDoUsuario("Digite o preço da gasolina");
     gasolina=precoLitroGasolina/consumo*distancia;
     totalCarro = estacionamento+gasolina;
     document.write("<p>Estacionamento: R$"+estacionamento.toFixed(2).replace(".",",")+"</p>");
