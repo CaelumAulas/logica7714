@@ -10,14 +10,28 @@
     var uber;
     var taxaInicial=7;
     var taxaDistancia=1.4;
+  
 
-    distancia=parseFloat(prompt("Digite a distância percorrida em km").replace(",","."));
+    var texto;
+    //criação da função
+    function pegaNumeroDoUsuario() {
+        var numero;
+        numero = parseFloat(prompt(texto).replace(",","."));
+        return numero;
+    }
+    texto = "Digite a distância em km";
+    //execução da função
+    distancia=pegaNumeroDoUsuario();
     document.write("<p>Distância: "+distancia+"km</p>");
     
     document.write("<h2>Carro:</h2>");
-    estacionamento=parseFloat(prompt("Digite o estacionamento").replace(",","."));
-    consumo=parseFloat(prompt("Digite o consumo do seu carro").replace(",","."));
-    precoLitroGasolina=parseFloat(prompt("Digite o preço da gasolina").replace(",","."));
+    texto = "Digite o valor do estacionamento";
+    //execução da função
+    estacionamento=pegaNumeroDoUsuario();
+    texto = "Digite o consumo do seu carro";
+    consumo=pegaNumeroDoUsuario();
+    texto = "Digite o preço da gasolina";
+    precoLitroGasolina=pegaNumeroDoUsuario();
     gasolina=precoLitroGasolina/consumo*distancia;
     totalCarro = estacionamento+gasolina;
     document.write("<p>Estacionamento: R$"+estacionamento.toFixed(2).replace(".",",")+"</p>");

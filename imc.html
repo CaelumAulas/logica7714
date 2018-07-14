@@ -1,7 +1,12 @@
+<script src="pegaNumero.js"></script>
+
 <script>
-    var peso=parseFloat(prompt("Qual o seu peso?").replace(",","."));
-    var lanches = parseFloat(prompt("Quantos kilos você comeu no almoço?").replace(",","."));
-    var altura=parseFloat(prompt("Qual a sua altura?").replace(",","."));
+    texto = "Qual o seu peso?";
+    var peso=pegaNumeroDoUsuario();
+    texto = "Quantos kilos você comeu no almoço?";
+    var lanches = pegaNumeroDoUsuario();
+    texto = "Qual a sua altura?";
+    var altura=pegaNumeroDoUsuario();
     var imc = (peso+lanches)/altura**2;
     document.write("<h1>O IMC é " + imc.toFixed(2).replace(".",",") + "</h1>");
 </script>
