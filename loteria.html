@@ -1,0 +1,30 @@
+<meta charset="utf-8">
+<h1>Jogo da Adivinhação</h1>
+
+<button onclick="jogar()">
+    Jogar
+</button>
+<!-- mostra.js, usamos a função mostra() -->
+<script src="https://bit.ly/2LynAny"></script>
+<script src="js/pegaNumero.js"></script>
+
+<script>
+    var numeroJogo = 0;
+    function jogar(){
+        var numeroUsuario;
+        var numeroDaSorte = parseInt((Math.random()*9)+1);
+        console.log(numeroDaSorte);
+        numeroUsuario = pegaNumeroDoUsuario("Adivinhe o número de 1 a 10");
+
+
+        numeroJogo = numeroJogo + 1;
+        mostra("Jogo "+numeroJogo);
+        if(numeroUsuario == numeroDaSorte){
+            mostra("Acertou!"); 
+        } 
+        else {
+            mostra("Errrrrou!");
+        }
+        mostra("O número era "+numeroDaSorte);
+    }
+</script>
