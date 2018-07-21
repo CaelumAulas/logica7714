@@ -1,32 +1,39 @@
 <h1>Cadastro Academia</h1>
-<script src="pegaNumero.js"></script>
-<script src="https://rawgit.com/CaelumAulas/logica7714/master/libIdade.js"></script>
+
+Nome:<input id="campoNome"><br>
+Peso:<input id="campoPeso"><br>
+Altura:<input id="campoAltura"><br>
+Data de Nascimento:<input id="campoData"><br>
+<button onclick="cadastraCliente()">Enviar</button>
+<script src="https://bit.ly/2O9M1ps"></script>
 <script>
-    var nome;
-    var peso;
-    var altura;
-    var imc;
-    var dataNascimento;
-    var dataNascimentoSeparada;
-    var idade;
+    function cadastraCliente() {
+        var nome;
+        var peso;
+        var altura;
+        var imc;
+        var dataNascimento;
+        var dataNascimentoSeparada;
+        var idade;
 
-    nome = prompt("Digite o nome do cliente");
-    peso = pegaNumeroDoUsuario("Digite o peso do cliente");
-    altura = pegaNumeroDoUsuario("Digite a altura do cliente");
-    imc = peso/(altura*altura);
-    
-    dataNascimento=prompt("Digite a data de nascimento do cliente. Ex: dd/mm/aaaa");
-    dataNascimentoSeparada= dataNascimento.split("/");
-    var dia = dataNascimentoSeparada[0];
-    var mes = dataNascimentoSeparada[1];
-    var ano = dataNascimentoSeparada[2];
-    
-    idade = calculaIdade(dia,mes,ano);
+        nome = campoNome.value;
+        peso = parseFloat(campoPeso.value);
+        altura = parseFloat(campoAltura.value);
+        imc = peso/(altura*altura);
+        
+        dataNascimento=campoData.value;
+        dataNascimentoSeparada= dataNascimento.split("/");
+        var dia = dataNascimentoSeparada[0];
+        var mes = dataNascimentoSeparada[1];
+        var ano = dataNascimentoSeparada[2];
+        
+        idade = calculaIdade(dia,mes,ano);
 
-    document.write("<p>Nome: " + nome+"</p>");
-    document.write("<p>Peso: " + peso.toFixed(2).replace(".",",")+"kg</p>");
-    document.write("<p>Altura: " + altura.toFixed(2).replace(".",",")+"m</p>");
-    document.write("<p>IMC: " +imc.toFixed(2).replace(".",",") + "</p>");
-    document.write("<p>Data de Nascimento: " +dataNascimento + "</p>");
-    document.write("<p>Idade: "+idade+" anos</p>");
+        document.write("<p>Nome: " + nome+"</p>");
+        document.write("<p>Peso: " + peso.toFixed(2).replace(".",",")+"kg</p>");
+        document.write("<p>Altura: " + altura.toFixed(2).replace(".",",")+"m</p>");
+        document.write("<p>IMC: " +imc.toFixed(2).replace(".",",") + "</p>");
+        document.write("<p>Data de Nascimento: " +dataNascimento + "</p>");
+        document.write("<p>Idade: "+idade+" anos</p>");
+    }
 </script>
