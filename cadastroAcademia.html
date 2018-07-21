@@ -4,6 +4,7 @@ Nome:<input id="campoNome"><br><br>
 Peso:<input id="campoPeso"><br><br>
 Altura:<input id="campoAltura"><br><br>
 Data de Nascimento:<input id="campoData"><br><br>
+<input type="checkbox" id="campoSaude"> Tem problema de saúde<br><br>
 <button onclick="cadastraCliente()">Enviar</button>
 <!-- libIdade.js, usamos a função calculaIdade() -->
 <script src="https://bit.ly/2O9M1ps"></script>
@@ -12,7 +13,10 @@ Data de Nascimento:<input id="campoData"><br><br>
 <!-- mostra.js, usamos a função mostra() -->
 <script src="https://bit.ly/2LynAny"></script>
 <script>
+    var numeroFicha = 0;
     function cadastraCliente() {
+        numeroFicha = numeroFicha + 1;
+
         var nome;
         var peso;
         var altura;
@@ -20,6 +24,9 @@ Data de Nascimento:<input id="campoData"><br><br>
         var dataNascimento;
         var dataNascimentoSeparada;
         var idade;
+        var ehMenorDeIdade;
+        var temProblemaDeSaude;
+        var fraseDoAcompanhamentoMedico;
 
         nome = campoNome.value;
         peso = parseFloatBrasil(campoPeso.value);
@@ -31,15 +38,25 @@ Data de Nascimento:<input id="campoData"><br><br>
         var dia = dataNascimentoSeparada[0];
         var mes = dataNascimentoSeparada[1];
         var ano = dataNascimentoSeparada[2];
-        
         idade = calculaIdade(dia,mes,ano);
+        ehMenorDeIdade = idade < 18;
 
+        temProblemaDeSaude = campoSaude.checked;
+        if (temProblemaDeSaude || ehMenorDeIdade) {
+            fraseDoAcompanhamentoMedico = "Precisa de acompanhamento médico";
+        }
+        if (!temProblemaDeSaude && !ehMenorDeIdade) {
+            fraseDoAcompanhamentoMedico = "NÃO precisa de acompanhamento médico";
+        }
+
+        mostra("<p>Ficha: "+ numeroFicha + "</p>");
         mostra("<p>Nome: " + nome+"</p>");
         mostra("<p>Peso: " + peso.toFixed(2).replace(".",",")+"kg</p>");
         mostra("<p>Altura: " + altura.toFixed(2).replace(".",",")+"m</p>");
         mostra("<p>IMC: " +imc.toFixed(2).replace(".",",") + "</p>");
         mostra("<p>Data de Nascimento: " +dataNascimento + "</p>");
         mostra("<p>Idade: "+idade+" anos</p>");
+        mostra("<p>"+ fraseDoAcompanhamentoMedico + "</p>");
         mostra("<br><br>");
     }
 </script>
