@@ -1,11 +1,16 @@
 <h1>Cadastro Academia</h1>
 
-Nome:<input id="campoNome"><br>
-Peso:<input id="campoPeso"><br>
-Altura:<input id="campoAltura"><br>
-Data de Nascimento:<input id="campoData"><br>
+Nome:<input id="campoNome"><br><br>
+Peso:<input id="campoPeso"><br><br>
+Altura:<input id="campoAltura"><br><br>
+Data de Nascimento:<input id="campoData"><br><br>
 <button onclick="cadastraCliente()">Enviar</button>
+<!-- libIdade.js, usamos a função calculaIdade() -->
 <script src="https://bit.ly/2O9M1ps"></script>
+<!-- libBrasil.js, usamos as funções parseFloatBrasil() e formataFloatBrasil() -->
+<script src="https://bit.ly/2LC6BgT"></script>
+<!-- mostra.js, usamos a função mostra() -->
+<script src="https://bit.ly/2LynAny"></script>
 <script>
     function cadastraCliente() {
         var nome;
@@ -17,8 +22,8 @@ Data de Nascimento:<input id="campoData"><br>
         var idade;
 
         nome = campoNome.value;
-        peso = parseFloat(campoPeso.value);
-        altura = parseFloat(campoAltura.value);
+        peso = parseFloatBrasil(campoPeso.value);
+        altura = parseFloatBrasil(campoAltura.value);
         imc = peso/(altura*altura);
         
         dataNascimento=campoData.value;
@@ -29,11 +34,12 @@ Data de Nascimento:<input id="campoData"><br>
         
         idade = calculaIdade(dia,mes,ano);
 
-        document.write("<p>Nome: " + nome+"</p>");
-        document.write("<p>Peso: " + peso.toFixed(2).replace(".",",")+"kg</p>");
-        document.write("<p>Altura: " + altura.toFixed(2).replace(".",",")+"m</p>");
-        document.write("<p>IMC: " +imc.toFixed(2).replace(".",",") + "</p>");
-        document.write("<p>Data de Nascimento: " +dataNascimento + "</p>");
-        document.write("<p>Idade: "+idade+" anos</p>");
+        mostra("<p>Nome: " + nome+"</p>");
+        mostra("<p>Peso: " + peso.toFixed(2).replace(".",",")+"kg</p>");
+        mostra("<p>Altura: " + altura.toFixed(2).replace(".",",")+"m</p>");
+        mostra("<p>IMC: " +imc.toFixed(2).replace(".",",") + "</p>");
+        mostra("<p>Data de Nascimento: " +dataNascimento + "</p>");
+        mostra("<p>Idade: "+idade+" anos</p>");
+        mostra("<br><br>");
     }
 </script>
